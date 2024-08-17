@@ -1,5 +1,6 @@
 <template>
-
+  <the-header/>
+  <slot/>
 </template>
 
 <script setup lang="ts">

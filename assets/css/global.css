@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'Lilita One', sans-serif;
+    src: url("../fonts/lilita-one.regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Nougat', sans-serif;
+    src: url("../fonts/Nougat-ExtraBlack.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --darkest-main-color: #002762;
+    --main-color: #0245B0;
+    --lightest-main-color: #0453CA;
+}
+
+* {
+    box-sizing: border-box;
+    font-size: 12px;
+    margin: 0;
+}
+
+body {
+    background: var(--main-color);
+    color: #fff;
+}
+
+.font-default {
+    font-family: 'Lilita One', sans-serif;
+}
+
+.font-title {
+    font-family: 'Nougat', sans-serif;
+}
