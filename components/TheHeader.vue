@@ -12,6 +12,9 @@
         <a href="">API</a>
       </nav>
       <div class="header__login">
+        <div class="burger-menu">
+          <the-header-burger-menu/>
+        </div>
         <button>
           Login
         </button>
@@ -55,8 +58,13 @@
   color: #FF4141;
 }
 
+.burger-menu {
+  display: none;
+}
+
 .header__nav {
   margin-top: 10px;
+  margin-left: -25px;
   display: flex;
   gap: 0 24px;
 }
@@ -84,6 +92,10 @@ button:focus{
   border: none;
 }
 
+.header__login {
+  display: flex;
+  align-items: center;
+}
 
 .header__login button {
   width: 120px;
@@ -98,5 +110,18 @@ button:focus{
 }
 .header__login button:hover {
   background: #003994;
+}
+
+@media not all and (min-width: 1024px) {
+  .header__content {
+    max-width: 95%;
+    justify-content: space-between;
+  }
+  .burger-menu {
+    display: unset;
+  }
+  .header__nav {
+    display: none;
+  }
 }
 </style>
