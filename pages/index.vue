@@ -14,14 +14,14 @@
             <div class="input-tag">
               <div class="input-tag__content">
                 <h2>#</h2>
-                <input type="text" placeholder="YOUR TAG">
+                <input type="text" placeholder="YOUR TAG" maxlength="15">
               </div>
               <h2 class="tag-support">Where is my TAG</h2>
             </div>
             <div class="input-club">
               <div class="input-club__content">
                 <h2>#</h2>
-                <input type="text" placeholder="CLUB TAG">
+                <input type="text" placeholder="CLUB TAG" maxlength="15">
               </div>
               <h2 class="tag-support">Where is TAG club</h2>
             </div>
@@ -106,6 +106,7 @@ input {
   height: 20px;
   border: 2px solid var(--darkest-main-color);
   font-size: 16px;
+  text-transform: uppercase;
 }
 .input-club__content h2, .input-tag__content h2 {
   background: var(--darkest-main-color);
