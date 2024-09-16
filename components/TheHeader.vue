@@ -15,16 +15,17 @@
         <div class="burger-menu">
           <the-header-burger-menu/>
         </div>
-        <button>
+        <button @click="isOpenModalLogin = !isOpenModalLogin">
           Login
         </button>
       </div>
     </div>
   </header>
+  <login-modal v-if="isOpenModalLogin"/>
 </template>
 
 <script setup lang="ts">
-
+  const isOpenModalLogin = ref(false)
 </script>
 
 <style scoped>
