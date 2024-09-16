@@ -9,7 +9,7 @@
         <input type="text" placeholder="YOUR TAG" maxlength="15" v-model="tagUser">
       </div>
       <div class="input-button__content">
-        <button>
+        <button @click="submitTag">
           Submit
         </button>
       </div>
@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
   const emit = defineEmits(['closeLoginModal'])
-  const elements = ['header', 'main', 'footer'].map(tag => document.querySelector(tag))
+  const elements = ['header', 'main', 'footer'].map(tag => document.querySelector(tag) as HTMLElement | null)
 
   const tagUser = ref('')
 
@@ -36,7 +36,22 @@
     emit('closeLoginModal')
   }
 
-  onMounted(() => setStyled('0.5', 'none'))
+  function submitTag(): void {
+    if (tagUser.value.length < 8) {
+      alert('Символов в тэге должно быть 8 или больше')
+      return
+    }
+    setcookie('userTag', tagUser.value)
+    emit('closeLoginModal')
+  }
+
+  onMounted((): void => {
+    setStyled('0.5', 'none')
+
+    if (getcookie('userTag')) {
+      tagUser.value = getcookie('userTag') ?? ''
+    }
+  })
   onUnmounted(() => setStyled())
 </script>
 
