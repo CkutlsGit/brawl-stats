@@ -62,7 +62,7 @@
 @media not all and (min-width: 640px) {
   .footer__content {
     justify-content: space-evenly;
-    padding: 74px 0px;
+    padding: 74px 0;
   }
   .footer__content h2 {
     font-size: 1.2rem;
