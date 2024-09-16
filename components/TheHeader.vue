@@ -21,7 +21,7 @@
       </div>
     </div>
   </header>
-  <login-modal v-if="isOpenModalLogin"/>
+  <login-modal v-if="isOpenModalLogin" @closeLoginModal="isOpenModalLogin = false"/>
 </template>
 
 <script setup lang="ts">
