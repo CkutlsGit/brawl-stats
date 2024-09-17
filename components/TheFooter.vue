@@ -2,12 +2,20 @@
   <footer class="footer">
     <div class="footer__content font-default">
       <div class="footer__about">
-        <h2>About the web</h2>
-        <h2>API</h2>
+        <NuxtLink to="/about-the-web">
+          <h2>
+            About the web
+          </h2>
+        </NuxtLink>
+        <NuxtLink to="/api">
+          <h2>
+            API
+          </h2>
+        </NuxtLink>
       </div>
       <div class="footer__github">
-        <h2>Github Project</h2>
-        <h2>Github Author</h2>
+        <a href="https://github.com/CkutlsGit/brawl-stats" target="_blank">Github Project</a>
+        <a href="https://github.com/CkutlsGit" target="_blank">Github Author</a>
       </div>
       <div class="footer__action">
         <h2>Action Brawlers for</h2>
@@ -22,6 +30,11 @@
 </script>
 
 <style scoped>
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
 .footer {
   margin-top: 300px;
   min-width: 100%;
@@ -35,17 +48,19 @@
   text-align: center;
   padding: 74px 170px;
 }
-.footer__content h2 {
+.footer__content a, h2 {
   font-size: 2rem;
   margin-bottom: 4px;
   cursor: pointer;
   transition: .3s ease-in;
 }
-.footer__content h2:hover {
+.footer__content h2:hover, a:hover {
   opacity: 60%;
 }
 
 .footer__github {
+  display: flex;
+  flex-direction: column;
   margin-left: 4%;
 }
 

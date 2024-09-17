@@ -6,10 +6,10 @@
         <h1 class="header__logo--sub-logo">Brawl</h1>
       </div>
       <nav class="header__nav font-default">
-        <a href="">Search player</a>
-        <a href="">Search club</a>
-        <a href="">About the web</a>
-        <a href="">API</a>
+        <NuxtLink href="/">Search player</NuxtLink>
+        <NuxtLink href="/">Search club</NuxtLink>
+        <NuxtLink href="/about-the-web">About the web</NuxtLink>
+        <NuxtLink href="/api">API</NuxtLink>
       </nav>
       <div class="header__login">
         <div class="burger-menu">

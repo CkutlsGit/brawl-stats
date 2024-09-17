@@ -3,8 +3,12 @@
     <article class="main__content">
       <div class="main__header">
         <div class="main__header--content font-default">
-          <h2>About the web</h2>
-          <h2>API</h2>
+          <NuxtLink to="/about-the-web">
+            <h2>About the web</h2>
+          </NuxtLink>
+          <NuxtLink to="/api">
+            <h2>API</h2>
+          </NuxtLink>
         </div>
       </div>
       <div class="main__section">
@@ -16,14 +20,18 @@
                 <h2>#</h2>
                 <input type="text" placeholder="YOUR TAG" maxlength="15">
               </div>
-              <h2 class="tag-support">Where is my TAG</h2>
+              <div class="input-tag__button">
+                <a href="https://support.supercell.com/brawl-stars/en/articles/player-tag.html" class="tag-support" target="_blank">Where is my TAG</a>
+              </div>
             </div>
             <div class="input-club">
               <div class="input-club__content">
                 <h2>#</h2>
                 <input type="text" placeholder="CLUB TAG" maxlength="15">
               </div>
-              <h2 class="tag-support">Where is TAG club</h2>
+              <div class="input-tag__button">
+                <a href="https://support.supercell.com/brawl-stars/ru/articles/creating-or-joining-a-club-3.html?q=1726152622" class="tag-support" target="_blank">Where is TAG club</a>
+              </div>
             </div>
           </div>
         </div>
@@ -39,6 +47,9 @@
 <style scoped>
 input {
   all: unset;
+}
+a {
+  text-decoration: none;
 }
 
 .main {
@@ -72,6 +83,7 @@ input {
 }
 .main__header--content h2 {
   font-size: 24px;
+  color: #fff;
   cursor: pointer;
   transition: .2s ease-in;
 }
@@ -116,17 +128,20 @@ input {
   padding-top: 5px;
 }
 
+.input-tag__button {
+  margin-top: 10px;
+}
+
 .input-tag .tag-support, .input-club .tag-support {
-  margin-top: 12px;
   background: var(--main-color);
   text-align: center;
-  padding-top: 8px;
-  width: 140px;
-  height: 35px;
+  padding: 6px;
   border-radius: 20px;
   cursor: pointer;
   transition: .2s ease-in;
   font-size: 16px;
+  text-decoration: none;
+  color: #fff;
 }
 .tag-support:hover {
   opacity: 70%;
