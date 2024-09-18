@@ -36,13 +36,24 @@
     emit('closeLoginModal')
   }
 
-  function submitTag(): void {
+  async function submitTag(): Promise<void> {
     if (tagUser.value.length < 8) {
       alert('Символов в тэге должно быть 8 или больше')
       return
     }
+
+    const response = await $fetch('/api/user/check-tag', {
+      method: 'POST',
+      body: JSON.stringify({ userTag: tagUser.value })
+    })
+
+    if (response == 'notFound') {
+      alert('Пользователь с таким тэгом не найден') //Todo: make a layout for an error
+      return
+    }
+
     setcookie('userTag', tagUser.value)
-    emit('closeLoginModal')  //Todo: Make sure that the api is sent to brave stars so that it searches for this user tag, and not just any one. + the sending interval is 30 seconds so that without loading someone else's API (to avoid being banned for a while from the api).
+    emit('closeLoginModal')
   }
 
   onMounted((): void => {
