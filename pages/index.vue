@@ -18,7 +18,7 @@
             <div class="input-tag">
               <div class="input-tag__content">
                 <h2>#</h2>
-                <input type="text" placeholder="YOUR TAG" maxlength="15">
+                <input @keyup.enter="sendUserTag" v-model="tagUser" type="text" placeholder="YOUR TAG" maxlength="15">
               </div>
               <div class="input-tag__button">
                 <a href="https://support.supercell.com/brawl-stars/en/articles/player-tag.html" class="tag-support" target="_blank">Where is my TAG</a>
@@ -38,10 +38,31 @@
       </div>
     </article>
   </main>
+  <stats-user v-if="isVisibleStatsBlock"/>
 </template>
 
 <script setup lang="ts">
+  const tagUser = ref('')
 
+  const isVisibleStatsBlock = ref(true)
+
+  async function sendUserTag() {
+    if (tagUser.value.length < 8) {
+      alert('Символов в тэге должно быть 8 или больше')
+      return
+    }
+
+    const response = await $fetch('/api/user/stats-tag', {
+      method: 'POST',
+      body: JSON.stringify({ userTag: tagUser.value })
+    })
+    console.log(response)
+    if (response == 'notFound') {
+      alert('Пользователь с таким тэгом не найден') //Todo: make a layout for an error
+      // Todo: when getting the user's color, you need to remove 4 characters 0xff
+      return
+    }
+  }
 </script>
 
 <style scoped>
