@@ -139,7 +139,8 @@
 }
 
 .stats__content {
-  min-width: 800px;
+  min-width: 60%;
+  max-width: 60%;
   min-height: 400px;
   padding: 26px;
   background: var(--lightest-main-color);
@@ -175,5 +176,14 @@
   display: flex;
   align-items: flex-start;
   flex-direction: column;
+}
+
+@media not all and (min-width: 1280px) {
+  .stats__content {
+    min-width: 100%;
+  }
+  .brawler {
+    width: 100px;
+  }
 }
 </style>
