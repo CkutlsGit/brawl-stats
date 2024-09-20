@@ -12,6 +12,7 @@
   "dependencies": {
     "@nuxtjs/dotenv": "^1.4.2",
     "nuxt": "^3.12.4",
+    "nuxt-bus": "^0.9.3",
     "vue": "latest"
   }
 }
