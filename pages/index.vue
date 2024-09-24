@@ -38,13 +38,14 @@
       </div>
     </article>
   </main>
-  <stats-user v-if="isVisibleStatsBlock"/>
+  <stats-user v-show="isVisibleStatsBlock"/>
 </template>
 
 <script setup lang="ts">
-  const tagUser = ref('')
+  const { $bus }: any = useNuxtApp()
 
-  const isVisibleStatsBlock = ref(true)
+  const tagUser = ref('')
+  const isVisibleStatsBlock = ref(false)
 
   async function sendUserTag() {
     if (tagUser.value.length < 8) {
@@ -56,12 +57,15 @@
       method: 'POST',
       body: JSON.stringify({ userTag: tagUser.value })
     })
-    console.log(response)
+
     if (response == 'notFound') {
       alert('Пользователь с таким тэгом не найден') //Todo: make a layout for an error
       // Todo: when getting the user's color, you need to remove 4 characters 0xff
       return
     }
+
+    isVisibleStatsBlock.value = true
+    $bus.emit('sendDataUser', response)
   }
 </script>
 
